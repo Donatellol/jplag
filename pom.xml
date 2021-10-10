@@ -27,7 +27,7 @@
 	
 	<properties>
 		<sonar.login>10b46b1610719c04634494b14e011faefafb4cba</sonar.login>
-		<sonar.projectKey>2021-mmqs-cyberalchemist</sonar.projectKey>
+		<sonar.projectKey>mmqs-cyberalchemist</sonar.projectKey>
 		<sonar.organization>2021-mmqs-cyberalchemist</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
