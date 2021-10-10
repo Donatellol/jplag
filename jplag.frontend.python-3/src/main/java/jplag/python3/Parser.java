@@ -30,8 +30,7 @@ public class Parser extends jplag.Parser implements Python3TokenConstants {
         Parser parser = new Parser();
         parser.setProgram(new jplag.StrippedProgram());
         jplag.Structure struct = parser.parse(null, args);
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(new File(args[0])));
+        try(BufferedReader reader = new BufferedReader(new FileReader(new File(args[0])))) {
             int lineNr = 1;
             int token = 0;
             String line;
