@@ -1016,8 +1016,7 @@ public class Program implements ProgramI {
             return;
         excluded = new HashSet<String>();
 
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(options.exclude_file));
+        try (BufferedReader in = new BufferedReader(new FileReader(options.exclude_file))) {
             String line;
             while ((line = in.readLine()) != null) {
                 excluded.add(line.trim());
