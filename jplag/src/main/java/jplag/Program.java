@@ -658,15 +658,16 @@ public class Program implements ProgramI {
                 if (endB == size - 1) {
                     totalTimeStr = "" + ((totalTime / 3600000 > 0) ? (totalTime / 3600000) + " h " : "")
                             + ((totalTime / 60000 > 0) ? ((totalTime / 60000) % 60) + " min " : "") + (totalTime / 1000 % 60) + " sec";
-                    try(remain = totalTime * (totalComparisons - count) / comparisons){
-                            remainTime = "" + ((remain / 3600000 > 0) ? (remain / 3600000) + " h " : "")
+                    if(comparisons != 0){
+                      remain = totalTime * (totalComparisons - count) / comparisons;
+                      remainTime = "" + ((remain / 3600000 > 0) ? (remain / 3600000) + " h " : "")
                             + ((remain / 60000 > 0) ? ((remain / 60000) % 60) + " min " : "") + (remain / 1000 % 60) + " sec";
-                          }catch(IOException e){
-                              e.printStackTrace();
-                          }
-                    print("Progress: " + (100 * count) / totalComparisons + "%\nTime used for comparisons: " + totalTimeStr
+
+                      print("Progress: " + (100 * count) / totalComparisons + "%\nTime used for comparisons: " + totalTimeStr
                             + "\nRemaining time (estimate): " + remainTime + "\n", null);
-                    break;
+
+                      break;
+                    }
                 }
 
                 // Remove B -> already done...
