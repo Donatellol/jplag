@@ -14,7 +14,7 @@ import jplag.Structure;
 
 /**
  * @Changed by Emeric Kwemou 29.01.2005
- *  
+ *
  */
 public class Parser extends jplag.Parser implements jplag.TokenConstants {
 
@@ -30,8 +30,7 @@ public class Parser extends jplag.Parser implements jplag.TokenConstants {
 		File file = new File(fileName);
 
 		filter = new HashSet<String>();
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
+		try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
 			String line;
 
 			while ((line = reader.readLine()) != null) {
