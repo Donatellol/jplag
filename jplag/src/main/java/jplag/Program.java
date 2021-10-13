@@ -1046,8 +1046,7 @@ public class Program implements ProgramI {
         if (options.include_file == null)
             return;
         included = new Vector<String>();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(options.include_file));
+        try (BufferedReader in = new BufferedReader(new FileReader(options.include_file))) {
             String line;
             while ((line = in.readLine()) != null) {
                 included.addElement(line.trim());
