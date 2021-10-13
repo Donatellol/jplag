@@ -77,8 +77,7 @@ public class Structure implements TokenConstants {
 
 	public void save(File file) {
 
-		try {
-			ObjectOutputStream p = new ObjectOutputStream(/* new GZIPOutputStream */(new FileOutputStream(file)));
+		try(ObjectOutputStream p = new ObjectOutputStream(/* new GZIPOutputStream */(new FileOutputStream(file)))) {
 
 			p.writeInt(anzahl);
 			p.writeInt(hash_length);
